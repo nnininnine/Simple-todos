@@ -14,13 +14,13 @@ class TodosViewModel {
 
     private let localRealm: Realm = try! Realm()
     var todos: PublishSubject<Todos> = .init()
+    let disposeBag: DisposeBag = .init()
 
     // MARK: Init
 
     init() {}
 
     // MARK: Methods
-    func getTodos() {
-        
-    }
+
+    func getTodos() {}
 }

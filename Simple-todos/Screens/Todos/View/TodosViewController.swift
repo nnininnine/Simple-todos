@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 import UIKit
 
 class TodosViewController: UIViewController {
@@ -38,8 +40,12 @@ class TodosViewController: UIViewController {
         addButton.action = #selector(routeToCreateTodo)
 
         // setup tableView
+        tableView.register(TodoCell.nib(), forCellReuseIdentifier: TodoCell.identifier)
 
         // binding data
+        viewModel.todos.asObservable().bind(to: tableView.rx.items(cellIdentifier: TodoCell.identifier)) { (_, todo: Todo, cell: TodoCell) in
+            cell.todo = todo
+        }.disposed(by: viewModel.disposeBag)
     }
 
     func setupWillAppear() {
