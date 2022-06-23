@@ -11,7 +11,7 @@ import UIKit
 class TodosViewController: UIViewController {
     // MARK: Property
 
-    private var viewModel: TodosViewModel
+    private var viewModel: TodosViewModel = .init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
