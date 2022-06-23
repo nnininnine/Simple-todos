@@ -6,10 +6,19 @@
 //
 
 import Foundation
+import RealmSwift
 
 typealias Todos = [Todo]
 
-struct Todo: Codable {
-    let id: UUID?
-    let message: String
+class Todo: Object {
+    // MARK: Property
+
+    @Persisted(primaryKey: true) var id: UUID?
+    @Persisted var message: String = ""
+
+    convenience init(id: UUID, message: String) {
+        self.init()
+        self.id = id
+        self.message = message
+    }
 }
