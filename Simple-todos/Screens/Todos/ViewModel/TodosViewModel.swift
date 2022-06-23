@@ -6,7 +6,21 @@
 //
 
 import Foundation
+import RealmSwift
+import RxSwift
 
 class TodosViewModel {
-    
+    // MARK: Property
+
+    private let localRealm: Realm = try! Realm()
+    var todos: PublishSubject<Todos> = .init()
+
+    // MARK: Init
+
+    init() {}
+
+    // MARK: Methods
+    func getTodos() {
+        
+    }
 }

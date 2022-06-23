@@ -9,9 +9,13 @@ import Foundation
 import UIKit
 
 class TodosViewController: UIViewController {
+    // MARK: Outlets
+
+    @IBOutlet private var tableView: UITableView!
+
     // MARK: Property
 
-    private var viewModel: TodosViewModel = .init()
+    private lazy var viewModel: TodosViewModel = .init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +23,27 @@ class TodosViewController: UIViewController {
         setup()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupWillAppear()
+    }
+
+    // MARK: Methods
+
     func setup() {
         // setup add todo button
         guard let addButton = navigationItem.rightBarButtonItem else { return }
         addButton.target = self
         addButton.action = #selector(routeToCreateTodo)
+
+        // setup tableView
+
+        // binding data
+    }
+
+    func setupWillAppear() {
+        viewModel.getTodos()
     }
 
     @objc func routeToCreateTodo() {
