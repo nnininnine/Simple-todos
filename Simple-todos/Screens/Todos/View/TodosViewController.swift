@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class TodosViewController: UIViewController {
-    // MARK: Outlets
+    // MARK: Property
+
+    private var viewModel: TodosViewModel
 
     override func viewDidLoad() {
         super.viewDidLoad()
