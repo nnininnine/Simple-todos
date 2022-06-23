@@ -18,7 +18,7 @@ class CreateTodoViewController: UIViewController {
 
     // MARK: Property
 
-    let disposeBag: DisposeBag = .init()
+    lazy var viewModel: CreateTodoViewModel = .init()
 
     // MARK: Init
 
@@ -32,10 +32,21 @@ class CreateTodoViewController: UIViewController {
 
     func setup() {
         // todo validation
-        let todoValidator: Observable<Bool> = textField.rx.text.orEmpty.map { $0.count > 0 }
+        viewModel.todoValidator = textField.rx.text.orEmpty.map { $0.count > 0 }
             .asObservable()
 
         // binding
-        todoValidator.bind(to: createButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.todoValidator?.bind(to: createButton.rx.isEnabled).disposed(by: viewModel.disposeBag)
+
+        // on event
+        // on tap button
+        createButton.rx.tap.asObservable().subscribe(onNext: { [weak self] in
+            self?.viewModel.createTodo(vc: self, message: self?.textField.text)
+        }).disposed(by: viewModel.disposeBag)
+
+        // editingDidEndOnExit textfield
+        textField.rx.controlEvent(.editingDidEndOnExit).asObservable().subscribe(onNext: { [weak self] in
+            self?.viewModel.createTodo(vc: self, message: self?.textField.text)
+        }).disposed(by: viewModel.disposeBag)
     }
 }

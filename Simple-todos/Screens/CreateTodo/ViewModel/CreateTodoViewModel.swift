@@ -17,9 +17,13 @@ class CreateTodoViewModel {
     var todoValidator: Observable<Bool>?
     let disposeBag: DisposeBag = .init()
 
+    // MARK: Init
+
+    init() {}
+
     // MARK: Methods
 
-    func createTodo(vc: UIViewController, message: String?) {
+    func createTodo(vc: UIViewController?, message: String?) {
         if let message = message, message.count > 0 {
             do {
                 try localRealm.write {
@@ -34,14 +38,14 @@ class CreateTodoViewModel {
         }
     }
 
-    func popToTodos(vc: UIViewController) {
-        vc.navigationController?.popViewController(animated: true)
+    private func popToTodos(vc: UIViewController?) {
+        vc?.navigationController?.popViewController(animated: true)
     }
 
-    func displayAlert(vc: UIViewController, title: String, message: String) {
+    private func displayAlert(vc: UIViewController?, title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .cancel, handler: nil))
 
-        vc.present(alert, animated: true, completion: nil)
+        vc?.present(alert, animated: true, completion: nil)
     }
 }
