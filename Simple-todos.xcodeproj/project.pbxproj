@@ -22,6 +22,8 @@
 		6923DA4828643F3F00252368 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA4728643F3F00252368 /* Todo.swift */; };
 		6923DA4C28643FF900252368 /* CreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA4B28643FF900252368 /* CreateTodoViewController.swift */; };
 		6923DA4E2864400A00252368 /* CreateTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA4D2864400A00252368 /* CreateTodoViewModel.swift */; };
+		6923DA522864605E00252368 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA502864605E00252368 /* TodoCell.swift */; };
+		6923DA532864605E00252368 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6923DA512864605E00252368 /* TodoCell.xib */; };
 		FBD57684E9FA0E7FD626A285 /* Pods_Simple_todos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD80460DDC946959F0FB949F /* Pods_Simple_todos.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		6923DA4728643F3F00252368 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		6923DA4B28643FF900252368 /* CreateTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewController.swift; sourceTree = "<group>"; };
 		6923DA4D2864400A00252368 /* CreateTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewModel.swift; sourceTree = "<group>"; };
+		6923DA502864605E00252368 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		6923DA512864605E00252368 /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		74A9C9BECB1EAB0216073D80 /* Pods-Simple-todos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple-todos.debug.xcconfig"; path = "Target Support Files/Pods-Simple-todos/Pods-Simple-todos.debug.xcconfig"; sourceTree = "<group>"; };
 		A54B8D4EE2464A9620FAF524 /* Pods-Simple-todos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple-todos.release.xcconfig"; path = "Target Support Files/Pods-Simple-todos/Pods-Simple-todos.release.xcconfig"; sourceTree = "<group>"; };
 		BD80460DDC946959F0FB949F /* Pods_Simple_todos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_todos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +205,7 @@
 		6923DA4128643F0E00252368 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6923DA4F2864604500252368 /* Cell */,
 				6923DA4328643F2400252368 /* TodosViewController.swift */,
 			);
 			path = View;
@@ -230,6 +235,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		6923DA4F2864604500252368 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6923DA502864605E00252368 /* TodoCell.swift */,
+				6923DA512864605E00252368 /* TodoCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		90252654809A5E9ADCF7C677 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,7 +254,6 @@
 				FA539308CD1F49298C3FF27B /* Pods-Simple-todosTests.debug.xcconfig */,
 				E02C4DF9548CCD910B43AF4D /* Pods-Simple-todosTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -356,6 +369,7 @@
 				6923DA1A2864306600252368 /* LaunchScreen.storyboard in Resources */,
 				6923DA172864306600252368 /* Assets.xcassets in Resources */,
 				6923DA152864306400252368 /* Main.storyboard in Resources */,
+				6923DA532864605E00252368 /* TodoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +504,7 @@
 				6923DA102864306400252368 /* SceneDelegate.swift in Sources */,
 				6923DA4828643F3F00252368 /* Todo.swift in Sources */,
 				6923DA4E2864400A00252368 /* CreateTodoViewModel.swift in Sources */,
+				6923DA522864605E00252368 /* TodoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
