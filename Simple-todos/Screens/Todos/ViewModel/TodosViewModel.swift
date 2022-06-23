@@ -22,5 +22,8 @@ class TodosViewModel {
 
     // MARK: Methods
 
-    func getTodos() {}
+    func getTodos() {
+        let todosData = localRealm.objects(Todo.self)
+        todos.onNext(Array(todosData))
+    }
 }
