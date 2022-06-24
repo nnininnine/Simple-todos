@@ -24,7 +24,7 @@ class TodoCell: UITableViewCell {
     var todo: Todo? {
         didSet {
             if let todo = todo {
-                todoLabel.text = todo.message
+                todoLabel.attributedText = getMessageAttributeString(todo.message, todo.complete)
             }
         }
     }
@@ -49,4 +49,16 @@ class TodoCell: UITableViewCell {
     }
 
     // MARK: Methods
+
+    func getMessageAttributeString(_ text: String, _ complete: Bool) -> NSMutableAttributedString {
+        let attributeString = NSMutableAttributedString(string: text)
+        if complete {
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
+        }
+//        else {
+//            attributeString.addAttribute(NSAttributedString.Key.sty, value: 2, range: NSRange(location: 0, length: attributeString.length))
+//        }
+
+        return attributeString
+    }
 }
