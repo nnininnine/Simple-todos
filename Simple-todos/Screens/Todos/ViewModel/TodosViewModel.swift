@@ -26,4 +26,8 @@ class TodosViewModel {
         let todosData = localRealm.objects(Todo.self)
         todos.onNext(Array(todosData))
     }
+
+    func displayActionSheets(vc: UIViewController, todo: Todo) {
+        print(todo)
+    }
 }

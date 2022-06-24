@@ -46,6 +46,12 @@ class TodosViewController: UIViewController {
         viewModel.todos.asObservable().bind(to: tableView.rx.items(cellIdentifier: TodoCell.identifier)) { (_, todo: Todo, cell: TodoCell) in
             cell.todo = todo
         }.disposed(by: viewModel.disposeBag)
+
+        // on tap todo cell
+        tableView.rx.modelSelected(Todo.self).subscribe(onNext: { [weak self] (todo: Todo) in
+            guard let self = self else { return }
+            self.viewModel.displayActionSheets(vc: self, todo: todo)
+        }).disposed(by: viewModel.disposeBag)
     }
 
     func setupWillAppear() {
