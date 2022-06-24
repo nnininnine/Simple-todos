@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EC878C72865A2A200421F14 /* SimpleTodoUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC878C62865A2A200421F14 /* SimpleTodoUnitTest.swift */; };
 		2B8B8699DB26C65C557AFC5C /* Pods_Simple_todosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAAF4D77369D847F93423A7 /* Pods_Simple_todosTests.framework */; };
 		3BF53194290C20821B20CB36 /* Pods_Simple_todos_Simple_todosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4392498BD127ADBE86C13CFB /* Pods_Simple_todos_Simple_todosUITests.framework */; };
 		6923DA0E2864306400252368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA0D2864306400252368 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EC878C62865A2A200421F14 /* SimpleTodoUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTodoUnitTest.swift; sourceTree = "<group>"; };
 		3AAAF4D77369D847F93423A7 /* Pods_Simple_todosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_todosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4392498BD127ADBE86C13CFB /* Pods_Simple_todos_Simple_todosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_todos_Simple_todosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6923DA0A2864306400252368 /* Simple-todos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple-todos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				6923DA242864306600252368 /* Simple_todosTests.swift */,
+				1EC878C62865A2A200421F14 /* SimpleTodoUnitTest.swift */,
 			);
 			path = "Simple-todosTests";
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6923DA252864306600252368 /* Simple_todosTests.swift in Sources */,
+				1EC878C72865A2A200421F14 /* SimpleTodoUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
