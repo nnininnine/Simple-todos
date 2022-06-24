@@ -17,8 +17,6 @@ class SimpleTodoUnitTest: QuickSpec {
     var localRealm: Realm!
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
-        print("name: \(self.name)")
     }
 
     override func tearDownWithError() throws {
@@ -26,11 +24,12 @@ class SimpleTodoUnitTest: QuickSpec {
     }
 
     override func spec() {
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
         describe("Create todo") {
+            localRealm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: self.name, deleteRealmIfMigrationNeeded: true))
+            self.createViewModel = .init(realm: localRealm)
             context("with string") {
-                localRealm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true))
-                let message: String = "test create task"
-                self.createViewModel = .init()
+                let message = "test create task"
                 self.createViewModel.createTodo(vc: nil, message: message)
                 it("should contain this todo in context") {
                     let isContain = Array(self.localRealm.objects(Todo.self)).contains(where: { $0.message == message })
@@ -38,9 +37,7 @@ class SimpleTodoUnitTest: QuickSpec {
                 }
             }
             context("with empty string") {
-                localRealm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true))
-                let message: String = ""
-                self.createViewModel = .init()
+                let message = ""
                 self.createViewModel.createTodo(vc: nil, message: message)
                 it("should contain this todo in context") {
                     let isContain = Array(self.localRealm.objects(Todo.self)).contains(where: { $0.message == message })
