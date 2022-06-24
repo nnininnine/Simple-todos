@@ -21,4 +21,6 @@ class Todo: Object {
         self.id = id
         self.message = message
     }
+
+    func isComplete(_ isComplete: Bool) {}
 }

@@ -7,15 +7,14 @@ target 'Simple-todos' do
   pod 'RealmSwift'
   pod 'RxSwift'
   pod 'RxCocoa'
-  # for testing
-  pod 'Quick'
-  pod 'Nimble'
 
   # Pods for Simple-todos
 
   target 'Simple-todosTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
   end
 
   target 'Simple-todosUITests' do
