@@ -1,4 +1,6 @@
 PODS:
+  - Nimble (10.0.0)
+  - Quick (5.0.1)
   - Realm (10.28.1):
     - Realm/Headers (= 10.28.1)
   - Realm/Headers (10.28.1)
@@ -12,12 +14,16 @@ PODS:
   - RxSwift (6.5.0)
 
 DEPENDENCIES:
+  - Nimble
+  - Quick
   - RealmSwift
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   trunk:
+    - Nimble
+    - Quick
     - Realm
     - RealmSwift
     - RxCocoa
@@ -25,12 +31,14 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
+  Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
   Realm: f4674e0e7ee537f67a78d79bd8319bc777d61d06
   RealmSwift: 0e0e4786685c4442bf56d3831dfefb5fa05d6fd6
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: d2730654dc1c0e2b285b1d08fff2f64a2705de81
+PODFILE CHECKSUM: 3c92bbb6485bbc1f1d37c8ca99718b154f534d0e
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2

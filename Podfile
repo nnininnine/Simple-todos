@@ -7,6 +7,9 @@ target 'Simple-todos' do
   pod 'RealmSwift'
   pod 'RxSwift'
   pod 'RxCocoa'
+  # for testing
+  pod 'Quick'
+  pod 'Nimble'
 
   # Pods for Simple-todos
 
