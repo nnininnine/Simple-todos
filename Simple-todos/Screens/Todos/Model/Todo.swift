@@ -15,12 +15,16 @@ class Todo: Object {
 
     @Persisted(primaryKey: true) var id: UUID?
     @Persisted var message: String = ""
+    @Persisted var complete: Bool = false
 
     convenience init(id: UUID, message: String) {
         self.init()
         self.id = id
         self.message = message
+        self.complete = false
     }
 
-    func isComplete(_ isComplete: Bool) {}
+    func isComplete(_ isComplete: Bool) {
+        complete = isComplete
+    }
 }

@@ -13,7 +13,7 @@ import UIKit
 class CreateTodoViewModel {
     // MARK: Property
 
-    private let localRealm: Realm = try! Realm()
+    private let localRealm: Realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true))
     var todoValidator: Observable<Bool>?
     let disposeBag: DisposeBag = .init()
 
