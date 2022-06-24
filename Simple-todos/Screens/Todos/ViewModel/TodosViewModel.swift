@@ -28,7 +28,6 @@ class TodosViewModel {
     }
 
     func displayActionSheets(vc: UIViewController, todo: Todo) {
-        print(todo)
         let actionSheet = UIAlertController(title: "Manage Todo", message: nil, preferredStyle: .actionSheet)
 
         // add action
@@ -44,10 +43,23 @@ class TodosViewModel {
     }
 
     func deleteTodo(todo: Todo) {
-        print("delete todo")
+        guard let todo = localRealm.object(ofType: Todo.self, forPrimaryKey: todo.id) else { return }
+
+        try! localRealm.write {
+            localRealm.delete(todo)
+        }
+
+        getTodos()
     }
 
     func updateComplete(todo: Todo) {
-        print("update complete field")
+        // update
+        guard let todo = localRealm.object(ofType: Todo.self, forPrimaryKey: todo.id) else { return }
+
+        try! localRealm.write {
+            todo.complete = !todo.complete
+        }
+
+        getTodos()
     }
 }
