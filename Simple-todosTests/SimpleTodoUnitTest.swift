@@ -80,6 +80,18 @@ class SimpleTodoUnitTest: QuickSpec {
                     expect(todo!.complete).to(equal(true))
                 }
             }
+
+            context("by delete todo") {
+                let message = "for delete"
+                let id = UUID()
+                self.createViewModel.createTodo(vc: nil, message: message, id: id)
+                it("should be nil") {
+                    let todo = self.localRealm.object(ofType: Todo.self, forPrimaryKey: id)
+                    self.todosViewModel.deleteTodo(todo: todo!)
+
+                    expect(self.localRealm.object(ofType: Todo.self, forPrimaryKey: id)).to(beNil())
+                }
+            }
         }
     }
 }
