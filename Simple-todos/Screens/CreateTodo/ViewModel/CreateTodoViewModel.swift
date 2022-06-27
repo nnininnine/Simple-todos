@@ -27,11 +27,11 @@ class CreateTodoViewModel {
 
     // MARK: Methods
 
-    func createTodo(vc: UIViewController?, message: String?) {
+    func createTodo(vc: UIViewController?, message: String?, id: UUID? = nil) {
         if let message = message, message.count > 0 {
             do {
                 try localRealm.write {
-                    localRealm.add(Todo(id: UUID(), message: message))
+                    localRealm.add(Todo(id: id != nil ? id! : UUID(), message: message))
                 }
                 popToTodos(vc: vc)
             } catch let err {
