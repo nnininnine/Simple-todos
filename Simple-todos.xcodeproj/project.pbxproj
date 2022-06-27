@@ -15,7 +15,6 @@
 		6923DA152864306400252368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6923DA132864306400252368 /* Main.storyboard */; };
 		6923DA172864306600252368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6923DA162864306600252368 /* Assets.xcassets */; };
 		6923DA1A2864306600252368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6923DA182864306600252368 /* LaunchScreen.storyboard */; };
-		6923DA252864306600252368 /* Simple_todosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA242864306600252368 /* Simple_todosTests.swift */; };
 		6923DA2F2864306600252368 /* Simple_todosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA2E2864306600252368 /* Simple_todosUITests.swift */; };
 		6923DA312864306600252368 /* Simple_todosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA302864306600252368 /* Simple_todosUITestsLaunchTests.swift */; };
 		6923DA4428643F2400252368 /* TodosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA4328643F2400252368 /* TodosViewController.swift */; };
@@ -57,7 +56,6 @@
 		6923DA192864306600252368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6923DA1B2864306600252368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6923DA202864306600252368 /* Simple-todosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple-todosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6923DA242864306600252368 /* Simple_todosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_todosTests.swift; sourceTree = "<group>"; };
 		6923DA2A2864306600252368 /* Simple-todosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple-todosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6923DA2E2864306600252368 /* Simple_todosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_todosUITests.swift; sourceTree = "<group>"; };
 		6923DA302864306600252368 /* Simple_todosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_todosUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 		6923DA232864306600252368 /* Simple-todosTests */ = {
 			isa = PBXGroup;
 			children = (
-				6923DA242864306600252368 /* Simple_todosTests.swift */,
 				1EC878C62865A2A200421F14 /* SimpleTodoUnitTest.swift */,
 			);
 			path = "Simple-todosTests";
@@ -533,7 +530,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6923DA252864306600252368 /* Simple_todosTests.swift in Sources */,
 				1EC878C72865A2A200421F14 /* SimpleTodoUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
