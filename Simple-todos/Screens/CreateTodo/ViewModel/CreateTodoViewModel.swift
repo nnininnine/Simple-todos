@@ -20,7 +20,7 @@ class CreateTodoViewModel {
     // MARK: Init
 
     init() {}
-    // init for test
+    //init with realm
     init(realm: Realm) {
         localRealm = realm
     }

@@ -12,13 +12,17 @@ import RxSwift
 class TodosViewModel {
     // MARK: Property
 
-    private let localRealm: Realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true))
+    private var localRealm: Realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true))
     var todos: PublishSubject<Todos> = .init()
     let disposeBag: DisposeBag = .init()
 
     // MARK: Init
 
     init() {}
+    // init with realm
+    init(realm: Realm) {
+        localRealm = realm
+    }
 
     // MARK: Methods
 
