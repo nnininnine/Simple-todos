@@ -15,6 +15,8 @@ class SimpleTodoUnitTest: QuickSpec {
     var createViewModel: CreateTodoViewModel!
     var todosViewModel: TodosViewModel!
     var localRealm: Realm!
+    let todo = Todo(id: UUID(), message: "Todo for test.")
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -29,6 +31,13 @@ class SimpleTodoUnitTest: QuickSpec {
         // create todo
         describe("Create todo") {
             self.createViewModel = .init(realm: localRealm)
+            context("with todo obj") {
+                self.createViewModel.createTodo(vc: nil, message: self.todo.message, id: self.todo.id)
+                it("should contain this todo in context") {
+                    let isContain = Array(self.localRealm.objects(Todo.self)).contains(where: { $0.message == self.todo.message })
+                    expect(isContain).toEventually(equal(true))
+                }
+            }
             context("with string") {
                 let message = "test create task"
                 self.createViewModel.createTodo(vc: nil, message: message)
@@ -53,6 +62,22 @@ class SimpleTodoUnitTest: QuickSpec {
                 it("should be right data for each field") {
                     expect(todo.message).to(equal("test todo list obj."))
                     expect(todo.complete).to(equal(false))
+                }
+            }
+        }
+        // action to todo
+        describe("Action to todo") {
+            self.todosViewModel = .init(realm: self.localRealm)
+            context("by update complete") {
+                let todo = self.localRealm.object(ofType: Todo.self, forPrimaryKey: self.todo.id)
+                it("should be false before call update") {
+                    expect(todo).toNot(beNil())
+                    expect(todo!.complete).to(equal(false))
+                }
+                it("should be true after call update") {
+                    self.todosViewModel.updateComplete(todo: todo!)
+                    expect(todo).toNot(beNil())
+                    expect(todo!.complete).to(equal(true))
                 }
             }
         }
