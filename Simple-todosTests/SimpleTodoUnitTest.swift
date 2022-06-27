@@ -25,8 +25,9 @@ class SimpleTodoUnitTest: QuickSpec {
 
     override func spec() {
         Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
+        self.localRealm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: self.name, deleteRealmIfMigrationNeeded: true))
+        // create todo
         describe("Create todo") {
-            localRealm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: self.name, deleteRealmIfMigrationNeeded: true))
             self.createViewModel = .init(realm: localRealm)
             context("with string") {
                 let message = "test create task"
@@ -42,6 +43,16 @@ class SimpleTodoUnitTest: QuickSpec {
                 it("should contain this todo in context") {
                     let isContain = Array(self.localRealm.objects(Todo.self)).contains(where: { $0.message == message })
                     expect(isContain).toEventually(equal(false))
+                }
+            }
+        }
+        // define todo object
+        describe("define todo object") {
+            context("with normal object") {
+                let todo: Todo = .init(id: UUID(), message: "test todo list obj.")
+                it("should be right data for each field") {
+                    expect(todo.message).to(equal("test todo list obj."))
+                    expect(todo.complete).to(equal(false))
                 }
             }
         }
