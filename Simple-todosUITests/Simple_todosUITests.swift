@@ -5,38 +5,38 @@
 //  Created by 7Peaks on 23/6/2565 BE.
 //
 
+@testable import Simple_todos
 import XCTest
 
 class Simple_todosUITests: XCTestCase {
-
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        super.setUp()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        XCUIApplication().launch()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testCreateTodos() throws {
         let app = XCUIApplication()
-        app.launch()
+        // init navigation bar
+        let simpleTodosNavigationBar = app.navigationBars["Simple-Todos"]
+        simpleTodosNavigationBar.children(matching: .button).element.tap()
+        // init text field
+        let todoTextField = app.textFields["some task..."]
+        XCTAssert(todoTextField.exists)
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        todoTextField.tap()
+        app/*@START_MENU_TOKEN@*/ .keyboards.buttons["Done"]/*[[".keyboards",".buttons[\"done\"]",".buttons[\"Done\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[2,0]]@END_MENU_TOKEN@*/ .tap()
+        app.alerts["Create failed."].scrollViews.otherElements.buttons["Confirm"].tap()
+        todoTextField.tap()
+        todoTextField.typeText("UI testing.")
+        app.keyboards.buttons["Done"].tap()
+        simpleTodosNavigationBar.buttons["add"].tap()
+        todoTextField.tap()
+        todoTextField.typeText("Todo for UI test02.")
+//
+        // init create button
+        let createButton = app/*@START_MENU_TOKEN@*/ .buttons["Create"].staticTexts["Create"]/*[[".buttons[\"Create\"].staticTexts[\"Create\"]",".staticTexts[\"Create\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+        XCTAssert(createButton.exists)
+        createButton.tap()
     }
 }
