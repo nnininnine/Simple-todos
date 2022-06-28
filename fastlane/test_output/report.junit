@@ -1,2 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites tests='0' failures='0'/>
+<testsuites name='Simple-todosUITests.xctest' tests='5' failures='0'>
+  <testsuite name='Simple_todosUITests.Simple_todosUITests' tests='1' failures='0'>
+    <testcase classname='Simple_todosUITests.Simple_todosUITests' name='testCreateTodos' time='11.735'/>
+  </testsuite>
+  <testsuite name='Simple_todosUITests.Simple_todosUITestsLaunchTests' tests='4' failures='0'>
+    <testcase classname='Simple_todosUITests.Simple_todosUITestsLaunchTests' name='testLaunch' time='6.474'/>
+    <testcase classname='Simple_todosUITests.Simple_todosUITestsLaunchTests' name='testLaunch' time='8.120'/>
+    <testcase classname='Simple_todosUITests.Simple_todosUITestsLaunchTests' name='testLaunch' time='6.616'/>
+    <testcase classname='Simple_todosUITests.Simple_todosUITestsLaunchTests' name='testLaunch' time='8.129'/>
+  </testsuite>
+</testsuites>

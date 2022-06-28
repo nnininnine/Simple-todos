@@ -25,7 +25,7 @@ platform :ios do
               devices: ["iPhone 13"])
   end
   lane :ui_test do
-    run_tests(scheme: "Simple-todoUITests",
+    run_tests(scheme: "Simple-todosUITests",
               devices: ["iPhone 13"])
   end
 end
