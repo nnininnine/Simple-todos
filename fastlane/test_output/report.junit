@@ -1,12 +1,2 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='Simple-todosTests.xctest' tests='7' failures='0'>
-  <testsuite name='Simple_todosTests.SimpleTodoUnitTest' tests='7' failures='0'>
-    <testcase classname='Simple_todosTests.SimpleTodoUnitTest' name='Create_todo__with_todo_obj__should_contain_this_todo_in_context' time='0.009'/>
-    <testcase classname='Simple_todosTests.SimpleTodoUnitTest' name='Create_todo__with_string__should_contain_this_todo_in_context' time='0.004'/>
-    <testcase classname='Simple_todosTests.SimpleTodoUnitTest' name='Create_todo__with_empty_string__should_contain_this_todo_in_context' time='0.005'/>
-    <testcase classname='Simple_todosTests.SimpleTodoUnitTest' name='define_todo_object__with_normal_object__should_be_right_data_for_each_field' time='0.002'/>
-    <testcase classname='Simple_todosTests.SimpleTodoUnitTest' name='Action_to_todo__by_update_complete__should_be_false_before_call_update' time='0.002'/>
-    <testcase classname='Simple_todosTests.SimpleTodoUnitTest' name='Action_to_todo__by_update_complete__should_be_true_after_call_update' time='0.001'/>
-    <testcase classname='Simple_todosTests.SimpleTodoUnitTest' name='Action_to_todo__by_delete_todo__should_be_nil' time='0.002'/>
-  </testsuite>
-</testsuites>
+<testsuites tests='0' failures='0'/>
