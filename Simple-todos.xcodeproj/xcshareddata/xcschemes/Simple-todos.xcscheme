@@ -20,6 +20,34 @@
                ReferencedContainer = "container:Simple-todos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6923DA1F2864306600252368"
+               BuildableName = "Simple-todosTests.xctest"
+               BlueprintName = "Simple-todosTests"
+               ReferencedContainer = "container:Simple-todos.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6923DA292864306600252368"
+               BuildableName = "Simple-todosUITests.xctest"
+               BlueprintName = "Simple-todosUITests"
+               ReferencedContainer = "container:Simple-todos.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
