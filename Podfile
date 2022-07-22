@@ -20,5 +20,9 @@ target 'Simple-todos' do
   target 'Simple-todosUITests' do
     # Pods for testing
   end
+  
+  target 'TodosWidgetExtension' do
+    inherit! :search_paths
+  end
 
 end
