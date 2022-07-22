@@ -42,7 +42,7 @@ struct TodosWidgetEntryView: View {
   var entry: Provider.Entry
 
   var body: some View {
-    TodoWidgetView()
+    TodosWidgetView(todos: [])
   }
 }
 
