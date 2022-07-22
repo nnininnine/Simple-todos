@@ -24,6 +24,13 @@
 		6923DA4E2864400A00252368 /* CreateTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA4D2864400A00252368 /* CreateTodoViewModel.swift */; };
 		6923DA522864605E00252368 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA502864605E00252368 /* TodoCell.swift */; };
 		6923DA532864605E00252368 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6923DA512864605E00252368 /* TodoCell.xib */; };
+		692F90DC288A7361007ACD24 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692F90DB288A7361007ACD24 /* WidgetKit.framework */; };
+		692F90DE288A7361007ACD24 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692F90DD288A7361007ACD24 /* SwiftUI.framework */; };
+		692F90E1288A7361007ACD24 /* TodosWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692F90E0288A7361007ACD24 /* TodosWidget.swift */; };
+		692F90E3288A7361007ACD24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 692F90E2288A7361007ACD24 /* Assets.xcassets */; };
+		692F90E7288A7361007ACD24 /* TodosWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 692F90DA288A7361007ACD24 /* TodosWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		692F90EC288A76EE007ACD24 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA4728643F3F00252368 /* Todo.swift */; };
+		692F90F0288A7810007ACD24 /* TodoWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692F90EF288A7810007ACD24 /* TodoWidgetView.swift */; };
 		FBD57684E9FA0E7FD626A285 /* Pods_Simple_todos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD80460DDC946959F0FB949F /* Pods_Simple_todos.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +49,28 @@
 			remoteGlobalIDString = 6923DA092864306400252368;
 			remoteInfo = "Simple-todos";
 		};
+		692F90E5288A7361007ACD24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6923DA022864306400252368 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 692F90D9288A7361007ACD24;
+			remoteInfo = TodosWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		692F90EB288A7361007ACD24 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				692F90E7288A7361007ACD24 /* TodosWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1EC878C62865A2A200421F14 /* SimpleTodoUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTodoUnitTest.swift; sourceTree = "<group>"; };
@@ -66,6 +94,13 @@
 		6923DA4D2864400A00252368 /* CreateTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewModel.swift; sourceTree = "<group>"; };
 		6923DA502864605E00252368 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		6923DA512864605E00252368 /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
+		692F90DA288A7361007ACD24 /* TodosWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodosWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		692F90DB288A7361007ACD24 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		692F90DD288A7361007ACD24 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		692F90E0288A7361007ACD24 /* TodosWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosWidget.swift; sourceTree = "<group>"; };
+		692F90E2288A7361007ACD24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		692F90E4288A7361007ACD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		692F90EF288A7810007ACD24 /* TodoWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoWidgetView.swift; sourceTree = "<group>"; };
 		74A9C9BECB1EAB0216073D80 /* Pods-Simple-todos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple-todos.debug.xcconfig"; path = "Target Support Files/Pods-Simple-todos/Pods-Simple-todos.debug.xcconfig"; sourceTree = "<group>"; };
 		A54B8D4EE2464A9620FAF524 /* Pods-Simple-todos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple-todos.release.xcconfig"; path = "Target Support Files/Pods-Simple-todos/Pods-Simple-todos.release.xcconfig"; sourceTree = "<group>"; };
 		BD80460DDC946959F0FB949F /* Pods_Simple_todos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_todos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +135,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		692F90D7288A7361007ACD24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				692F90DE288A7361007ACD24 /* SwiftUI.framework in Frameworks */,
+				692F90DC288A7361007ACD24 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -109,6 +153,8 @@
 				BD80460DDC946959F0FB949F /* Pods_Simple_todos.framework */,
 				4392498BD127ADBE86C13CFB /* Pods_Simple_todos_Simple_todosUITests.framework */,
 				3AAAF4D77369D847F93423A7 /* Pods_Simple_todosTests.framework */,
+				692F90DB288A7361007ACD24 /* WidgetKit.framework */,
+				692F90DD288A7361007ACD24 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,6 +165,7 @@
 				6923DA0C2864306400252368 /* Simple-todos */,
 				6923DA232864306600252368 /* Simple-todosTests */,
 				6923DA2D2864306600252368 /* Simple-todosUITests */,
+				692F90DF288A7361007ACD24 /* TodosWidget */,
 				6923DA0B2864306400252368 /* Products */,
 				90252654809A5E9ADCF7C677 /* Pods */,
 				335C139EF9EAFC329AFEE563 /* Frameworks */,
@@ -131,6 +178,7 @@
 				6923DA0A2864306400252368 /* Simple-todos.app */,
 				6923DA202864306600252368 /* Simple-todosTests.xctest */,
 				6923DA2A2864306600252368 /* Simple-todosUITests.xctest */,
+				692F90DA288A7361007ACD24 /* TodosWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,6 +292,33 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		692F90DF288A7361007ACD24 /* TodosWidget */ = {
+			isa = PBXGroup;
+			children = (
+				692F90EE288A775D007ACD24 /* View */,
+				692F90ED288A774E007ACD24 /* Widget */,
+				692F90E2288A7361007ACD24 /* Assets.xcassets */,
+				692F90E4288A7361007ACD24 /* Info.plist */,
+			);
+			path = TodosWidget;
+			sourceTree = "<group>";
+		};
+		692F90ED288A774E007ACD24 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				692F90E0288A7361007ACD24 /* TodosWidget.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		692F90EE288A775D007ACD24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				692F90EF288A7810007ACD24 /* TodoWidgetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		90252654809A5E9ADCF7C677 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,10 +344,12 @@
 				6923DA072864306400252368 /* Frameworks */,
 				6923DA082864306400252368 /* Resources */,
 				6C8C7271EB4E89CBDD2AFE49 /* [CP] Embed Pods Frameworks */,
+				692F90EB288A7361007ACD24 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				692F90E6288A7361007ACD24 /* PBXTargetDependency */,
 			);
 			name = "Simple-todos";
 			productName = "Simple-todos";
@@ -319,6 +396,23 @@
 			productReference = 6923DA2A2864306600252368 /* Simple-todosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		692F90D9288A7361007ACD24 /* TodosWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 692F90E8288A7361007ACD24 /* Build configuration list for PBXNativeTarget "TodosWidgetExtension" */;
+			buildPhases = (
+				692F90D6288A7361007ACD24 /* Sources */,
+				692F90D7288A7361007ACD24 /* Frameworks */,
+				692F90D8288A7361007ACD24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodosWidgetExtension;
+			productName = TodosWidgetExtension;
+			productReference = 692F90DA288A7361007ACD24 /* TodosWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -326,7 +420,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					6923DA092864306400252368 = {
@@ -339,6 +433,9 @@
 					6923DA292864306600252368 = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = 6923DA092864306400252368;
+					};
+					692F90D9288A7361007ACD24 = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
@@ -358,6 +455,7 @@
 				6923DA092864306400252368 /* Simple-todos */,
 				6923DA1F2864306600252368 /* Simple-todosTests */,
 				6923DA292864306600252368 /* Simple-todosUITests */,
+				692F90D9288A7361007ACD24 /* TodosWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -385,6 +483,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		692F90D8288A7361007ACD24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				692F90E3288A7361007ACD24 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6923DA4C28643FF900252368 /* CreateTodoViewController.swift in Sources */,
+				692F90F0288A7810007ACD24 /* TodoWidgetView.swift in Sources */,
 				6923DA4628643F3600252368 /* TodosViewModel.swift in Sources */,
 				6923DA0E2864306400252368 /* AppDelegate.swift in Sources */,
 				6923DA4428643F2400252368 /* TodosViewController.swift in Sources */,
@@ -543,6 +650,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		692F90D6288A7361007ACD24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				692F90E1288A7361007ACD24 /* TodosWidget.swift in Sources */,
+				692F90EC288A76EE007ACD24 /* Todo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -555,6 +671,11 @@
 			isa = PBXTargetDependency;
 			target = 6923DA092864306400252368 /* Simple-todos */;
 			targetProxy = 6923DA2B2864306600252368 /* PBXContainerItemProxy */;
+		};
+		692F90E6288A7361007ACD24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 692F90D9288A7361007ACD24 /* TodosWidgetExtension */;
+			targetProxy = 692F90E5288A7361007ACD24 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -698,6 +819,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74A9C9BECB1EAB0216073D80 /* Pods-Simple-todos.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -728,6 +850,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A54B8D4EE2464A9620FAF524 /* Pods-Simple-todos.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -834,6 +957,62 @@
 			};
 			name = Release;
 		};
+		692F90E9288A7361007ACD24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2DNT83345;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodosWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodosWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nuttaponbuaban.Simple-todos.TodosWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		692F90EA288A7361007ACD24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2DNT83345;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodosWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodosWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nuttaponbuaban.Simple-todos.TodosWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -869,6 +1048,15 @@
 			buildConfigurations = (
 				6923DA3B2864306600252368 /* Debug */,
 				6923DA3C2864306600252368 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		692F90E8288A7361007ACD24 /* Build configuration list for PBXNativeTarget "TodosWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				692F90E9288A7361007ACD24 /* Debug */,
+				692F90EA288A7361007ACD24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
