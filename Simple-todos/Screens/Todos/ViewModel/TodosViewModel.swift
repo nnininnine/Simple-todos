@@ -12,7 +12,6 @@ import RxSwift
 class TodosViewModel {
   // MARK: Property
 
-  private var localRealm: Realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true))
   var todos: PublishSubject<Todos> = .init()
   let disposeBag: DisposeBag = .init()
 
@@ -21,13 +20,13 @@ class TodosViewModel {
   init() {}
   // init with realm
   init(realm: Realm) {
-    localRealm = realm
+//    localRealm = realm
   }
 
   // MARK: Methods
 
   func getTodos() {
-    let todosData = localRealm.objects(Todo.self)
+    let todosData = TodosService.shared.getAllTodos()
     todos.onNext(Array(todosData))
   }
 
@@ -47,22 +46,14 @@ class TodosViewModel {
   }
 
   func deleteTodo(todo: Todo) {
-    guard let todo = localRealm.object(ofType: Todo.self, forPrimaryKey: todo.id) else { return }
-
-    try! localRealm.write {
-      localRealm.delete(todo)
-    }
+    TodosService.shared.deleteTodo(todo: todo)
 
     getTodos()
   }
 
   func updateComplete(todo: Todo) {
     // update
-    guard let todo = localRealm.object(ofType: Todo.self, forPrimaryKey: todo.id) else { return }
-
-    try! localRealm.write {
-      todo.complete = !todo.complete
-    }
+    TodosService.shared.updateComplete(todo: todo)
 
     getTodos()
   }

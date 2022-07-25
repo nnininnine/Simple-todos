@@ -31,8 +31,8 @@
 		692F90E7288A7361007ACD24 /* TodosWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 692F90DA288A7361007ACD24 /* TodosWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		692F90EC288A76EE007ACD24 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923DA4728643F3F00252368 /* Todo.swift */; };
 		692F90F5288A812C007ACD24 /* TodosWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692F90EF288A7810007ACD24 /* TodosWidgetView.swift */; };
-		692F90F8288A8244007ACD24 /* TodosWidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692F90F7288A8244007ACD24 /* TodosWidgetService.swift */; };
-		6934A1CC288E5FEE000322A1 /* TodosWidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692F90F7288A8244007ACD24 /* TodosWidgetService.swift */; };
+		6934A1D0288E61EF000322A1 /* TodosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6934A1CF288E61EF000322A1 /* TodosService.swift */; };
+		6934A1D3288E644E000322A1 /* TodosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6934A1CF288E61EF000322A1 /* TodosService.swift */; };
 		B067502A52CD0930BC22A08F /* Pods_TodosWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32E2B2F9637EE6443ED54FD /* Pods_TodosWidgetExtension.framework */; };
 		E562DAFE4F609FB1CB1E3938 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		FBD57684E9FA0E7FD626A285 /* Pods_Simple_todos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD80460DDC946959F0FB949F /* Pods_Simple_todos.framework */; };
@@ -107,7 +107,7 @@
 		692F90E2288A7361007ACD24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		692F90E4288A7361007ACD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		692F90EF288A7810007ACD24 /* TodosWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosWidgetView.swift; sourceTree = "<group>"; };
-		692F90F7288A8244007ACD24 /* TodosWidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosWidgetService.swift; sourceTree = "<group>"; };
+		6934A1CF288E61EF000322A1 /* TodosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosService.swift; sourceTree = "<group>"; };
 		74A9C9BECB1EAB0216073D80 /* Pods-Simple-todos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple-todos.debug.xcconfig"; path = "Target Support Files/Pods-Simple-todos/Pods-Simple-todos.debug.xcconfig"; sourceTree = "<group>"; };
 		A54B8D4EE2464A9620FAF524 /* Pods-Simple-todos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple-todos.release.xcconfig"; path = "Target Support Files/Pods-Simple-todos/Pods-Simple-todos.release.xcconfig"; sourceTree = "<group>"; };
 		BD80460DDC946959F0FB949F /* Pods_Simple_todos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_todos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +197,7 @@
 		6923DA0C2864306400252368 /* Simple-todos */ = {
 			isa = PBXGroup;
 			children = (
+				6934A1CE288E61DE000322A1 /* Service */,
 				6923DA3D28643E6F00252368 /* Screens */,
 				6923DA0D2864306400252368 /* AppDelegate.swift */,
 				6923DA0F2864306400252368 /* SceneDelegate.swift */,
@@ -306,7 +307,6 @@
 		692F90DF288A7361007ACD24 /* TodosWidget */ = {
 			isa = PBXGroup;
 			children = (
-				692F90F6288A820E007ACD24 /* Service */,
 				692F90EE288A775D007ACD24 /* View */,
 				692F90ED288A774E007ACD24 /* Widget */,
 				692F90E2288A7361007ACD24 /* Assets.xcassets */,
@@ -331,10 +331,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		692F90F6288A820E007ACD24 /* Service */ = {
+		6934A1CE288E61DE000322A1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				692F90F7288A8244007ACD24 /* TodosWidgetService.swift */,
+				6934A1CF288E61EF000322A1 /* TodosService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -669,8 +669,8 @@
 				6923DA4C28643FF900252368 /* CreateTodoViewController.swift in Sources */,
 				6923DA4628643F3600252368 /* TodosViewModel.swift in Sources */,
 				6923DA0E2864306400252368 /* AppDelegate.swift in Sources */,
+				6934A1D0288E61EF000322A1 /* TodosService.swift in Sources */,
 				6923DA4428643F2400252368 /* TodosViewController.swift in Sources */,
-				6934A1CC288E5FEE000322A1 /* TodosWidgetService.swift in Sources */,
 				6923DA102864306400252368 /* SceneDelegate.swift in Sources */,
 				6923DA4828643F3F00252368 /* Todo.swift in Sources */,
 				6923DA4E2864400A00252368 /* CreateTodoViewModel.swift in Sources */,
@@ -700,8 +700,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				692F90E1288A7361007ACD24 /* TodosWidget.swift in Sources */,
-				692F90F8288A8244007ACD24 /* TodosWidgetService.swift in Sources */,
 				692F90F5288A812C007ACD24 /* TodosWidgetView.swift in Sources */,
+				6934A1D3288E644E000322A1 /* TodosService.swift in Sources */,
 				692F90EC288A76EE007ACD24 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -869,6 +869,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Simple-todos/Simple-todos.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A2DNT83345;
@@ -900,6 +901,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Simple-todos/Simple-todos.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A2DNT83345;
@@ -1010,6 +1012,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TodosWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A2DNT83345;
@@ -1039,6 +1042,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TodosWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A2DNT83345;

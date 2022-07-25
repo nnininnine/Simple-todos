@@ -11,45 +11,43 @@ import RxSwift
 import UIKit
 
 class CreateTodoViewModel {
-    // MARK: Property
+  // MARK: Property
 
-    private var localRealm: Realm = try! Realm(configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true))
-    var todoValidator: Observable<Bool>?
-    let disposeBag: DisposeBag = .init()
+  var todoValidator: Observable<Bool>?
+  let disposeBag: DisposeBag = .init()
 
-    // MARK: Init
+  // MARK: Init
 
-    init() {}
-    //init with realm
-    init(realm: Realm) {
-        localRealm = realm
+  init() {}
+  // init with realm
+  init(realm: Realm) {
+//        localRealm = realm
+  }
+
+  // MARK: Methods
+
+  func createTodo(vc: UIViewController?, message: String?, id: UUID? = nil) {
+    if let message = message, message.count > 0 {
+      do {
+        try TodosService.shared.createTodo(message: message, id: id)
+
+        popToTodos(vc: vc)
+      } catch let err {
+        displayAlert(vc: vc, title: "Create failed.", message: err.localizedDescription)
+      }
+    } else {
+      displayAlert(vc: vc, title: "Create failed.", message: "There's no message to create todo.")
     }
+  }
 
-    // MARK: Methods
+  private func popToTodos(vc: UIViewController?) {
+    vc?.navigationController?.popViewController(animated: true)
+  }
 
-    func createTodo(vc: UIViewController?, message: String?, id: UUID? = nil) {
-        if let message = message, message.count > 0 {
-            do {
-                try localRealm.write {
-                    localRealm.add(Todo(id: id != nil ? id! : UUID(), message: message))
-                }
-                popToTodos(vc: vc)
-            } catch let err {
-                displayAlert(vc: vc, title: "Create failed.", message: err.localizedDescription)
-            }
-        } else {
-            displayAlert(vc: vc, title: "Create failed.", message: "There's no message to create todo.")
-        }
-    }
+  private func displayAlert(vc: UIViewController?, title: String, message: String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Confirm", style: .cancel, handler: nil))
 
-    private func popToTodos(vc: UIViewController?) {
-        vc?.navigationController?.popViewController(animated: true)
-    }
-
-    private func displayAlert(vc: UIViewController?, title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .cancel, handler: nil))
-
-        vc?.present(alert, animated: true, completion: nil)
-    }
+    vc?.present(alert, animated: true, completion: nil)
+  }
 }

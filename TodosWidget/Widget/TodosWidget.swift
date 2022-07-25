@@ -33,7 +33,7 @@ struct Provider: TimelineProvider {
     let currentDate = Date()
     for hourOffset in 0 ..< 5 {
       let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-      let entry = SimpleEntry(date: entryDate, todos: TodosWidgetService.shared.getAllTodos())
+      let entry = SimpleEntry(date: entryDate, todos: TodosService.shared.getAllTodos())
       entries.append(entry)
     }
 
