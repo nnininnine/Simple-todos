@@ -54,8 +54,8 @@ struct TodosWidget: Widget {
     StaticConfiguration(kind: kind, provider: Provider()) { entry in
       TodosWidgetEntryView(entry: entry)
     }
-    .configurationDisplayName("My Widget")
-    .description("This is an example widget.")
+    .configurationDisplayName("Tasks")
+    .description("List of tasks.")
   }
 }
 
