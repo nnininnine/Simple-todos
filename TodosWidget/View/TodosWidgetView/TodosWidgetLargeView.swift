@@ -1,5 +1,5 @@
 //
-//  TodosWidgetSmallMediumView.swift
+//  TodosWidgetLargeView.swift
 //  TodosWidgetExtension
 //
 //  Created by 7Peaks on 25/7/2565 BE.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-struct TodosWidgetSmallMediumView: View {
+struct TodosWidgetLargeView: View {
   // MARK: - Properties
 
   @Environment(\.widgetFamily) var family: WidgetFamily
@@ -20,8 +20,8 @@ struct TodosWidgetSmallMediumView: View {
   init(todos: Todos) {
     self.todosCount = todos.count
 
-    if todosCount > 3 {
-      self.todos = Array(todos[0 ..< 3])
+    if todosCount > 9 {
+      self.todos = Array(todos[0 ..< 9])
     } else {
       self.todos = todos
     }
@@ -29,6 +29,7 @@ struct TodosWidgetSmallMediumView: View {
 
   // MARK: - Body
 
+  @ViewBuilder
   var body: some View {
     VStack(alignment: .leading, spacing: 6) {
       HStack {
@@ -43,10 +44,16 @@ struct TodosWidgetSmallMediumView: View {
       }
       ForEach(todos, id: \.id) { todo in
         HStack(spacing: 2) {
-          Circle()
-            .strokeBorder(.gray, lineWidth: 1)
-            .frame(width: 16, height: 16)
+          ZStack {
+            Circle()
+              .strokeBorder(.gray, lineWidth: 1)
+              .frame(width: 16, height: 16)
+            Circle()
+              .fill(Color(uiColor: todo.complete ? .label : .clear))
+              .frame(width: 10, height: 10)
+          }
           Text(todo.message)
+            .strikethrough(todo.complete, color: Color(uiColor: .label))
             .lineLimit(1)
             .padding(4)
         }
@@ -57,8 +64,8 @@ struct TodosWidgetSmallMediumView: View {
   }
 }
 
-struct TodosWidgetSmallMediumView_Previews: PreviewProvider {
+struct TodosWidgetLargeView_Previews: PreviewProvider {
   static var previews: some View {
-    TodosWidgetSmallMediumView(todos: [])
+    TodosWidgetLargeView(todos: [])
   }
 }

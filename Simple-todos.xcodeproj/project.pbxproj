@@ -336,9 +336,7 @@
 		692F90EE288A775D007ACD24 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				692F90EF288A7810007ACD24 /* TodosWidgetView.swift */,
-				6934A1D4288E7111000322A1 /* TodosWidgetLargeView.swift */,
-				6934A1D6288E7122000322A1 /* TodosWidgetSmallMediumView.swift */,
+				6934A1DC288E88EA000322A1 /* TodosWidgetView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +347,16 @@
 				6934A1CF288E61EF000322A1 /* TodosService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		6934A1DC288E88EA000322A1 /* TodosWidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				692F90EF288A7810007ACD24 /* TodosWidgetView.swift */,
+				6934A1D4288E7111000322A1 /* TodosWidgetLargeView.swift */,
+				6934A1D6288E7122000322A1 /* TodosWidgetSmallMediumView.swift */,
+			);
+			path = TodosWidgetView;
 			sourceTree = "<group>";
 		};
 		90252654809A5E9ADCF7C677 /* Pods */ = {
