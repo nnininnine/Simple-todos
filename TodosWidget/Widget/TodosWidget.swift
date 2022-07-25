@@ -55,7 +55,6 @@ struct TodosWidgetEntryView: View {
   }
 }
 
-@main
 struct TodosWidget: Widget {
   let kind: String = "TodosWidget"
 
