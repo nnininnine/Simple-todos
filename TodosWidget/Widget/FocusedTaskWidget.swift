@@ -58,7 +58,7 @@ struct FocusedTaskWidget: Widget {
       FocusedTaskWidgetEntryView(entry: entry)
     }
     .configurationDisplayName("Focused Task")
-    .description("Select the task for display in home.")
+    .description("Select the task for display in home screen.")
   }
 }
 

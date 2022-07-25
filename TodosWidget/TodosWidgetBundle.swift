@@ -12,5 +12,6 @@ import WidgetKit
 struct TodosWidgetBundle: WidgetBundle {
   var body: some Widget {
     TodosWidget()
+    FocusedTaskWidget()
   }
 }
