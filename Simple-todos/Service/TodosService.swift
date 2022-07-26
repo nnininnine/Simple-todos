@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import WidgetKit
 
 class TodosService {
   static let shared: TodosService = .init()
@@ -28,6 +29,8 @@ class TodosService {
 
   func getAllTodos() -> Todos {
     let result = realm.objects(Todo.self)
+
+    refreshTodosWidget()
     return Array(result)
   }
 
@@ -67,5 +70,9 @@ class TodosService {
     try! realm.write {
       todo.complete = !todo.complete
     }
+  }
+
+  func refreshTodosWidget() {
+    WidgetCenter.shared.reloadTimelines(ofKind: "TodosWidget")
   }
 }
