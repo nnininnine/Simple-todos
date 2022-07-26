@@ -11,7 +11,7 @@ import WidgetKit
 struct FocusedTaskWidgetView: View {
   // MARK: - Properties
 
-  let todo: Todo
+  var todo: Todo? = nil
 
   // MARK: - Body
 
@@ -19,8 +19,8 @@ struct FocusedTaskWidgetView: View {
     VStack(alignment: .leading) {
       Text("Task:")
         .bold()
-      Text(todo.message)
-        .strikethrough(todo.complete, color: Color(uiColor: .label))
+      Text(todo?.message ?? "No task selected.")
+        .strikethrough(todo?.complete ?? false, color: Color(uiColor: .label))
       Spacer()
       ZStack {
         Capsule()
@@ -30,6 +30,7 @@ struct FocusedTaskWidgetView: View {
           .bold()
           .font(.system(size: 14))
       }
+      .opacity(todo != nil ? 1 : 0)
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     .padding()
@@ -38,7 +39,7 @@ struct FocusedTaskWidgetView: View {
 
 struct FocusedTaskWidgetView_Previews: PreviewProvider {
   static var previews: some View {
-    FocusedTaskWidgetView(todo: TodosService.shared.getRandTodo() ?? Todo(id: UUID(), message: "Temp todo task. <3"))
+    FocusedTaskWidgetView()
       .previewContext(WidgetPreviewContext(family: .systemMedium))
   }
 }
