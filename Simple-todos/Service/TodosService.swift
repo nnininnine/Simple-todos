@@ -72,6 +72,10 @@ class TodosService {
     }
   }
 
+  func getTodo(by id: UUID) -> Todo? {
+    return realm.object(ofType: Todo.self, forPrimaryKey: id)
+  }
+
   func refreshTodosWidget() {
     WidgetCenter.shared.reloadTimelines(ofKind: "TodosWidget")
   }
