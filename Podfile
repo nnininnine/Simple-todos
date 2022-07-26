@@ -24,5 +24,9 @@ target 'Simple-todos' do
   target 'TodosWidgetExtension' do
     inherit! :search_paths
   end
+  
+  target 'IntentSelectTask' do
+    inherit! :search_paths
+  end
 
 end
