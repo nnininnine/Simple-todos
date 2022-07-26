@@ -11,56 +11,56 @@ import RxSwift
 import UIKit
 
 class TodosViewController: UIViewController {
-    // MARK: Outlets
+  // MARK: Outlets
 
-    @IBOutlet private var tableView: UITableView!
+  @IBOutlet private var tableView: UITableView!
 
-    // MARK: Property
+  // MARK: Property
 
-    private lazy var viewModel: TodosViewModel = .init()
+  private lazy var viewModel: TodosViewModel = .init()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        setup()
-    }
+    setup()
+  }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
 
-        setupWillAppear()
-    }
+    setupWillAppear()
+  }
 
-    // MARK: Methods
+  // MARK: Methods
 
-    func setup() {
-        // setup add todo button
-        guard let addButton = navigationItem.rightBarButtonItem else { return }
-        addButton.target = self
-        addButton.action = #selector(routeToCreateTodo)
+  func setup() {
+    // setup add todo button
+    guard let addButton = navigationItem.rightBarButtonItem else { return }
+    addButton.target = self
+    addButton.action = #selector(routeToCreateTodo)
 
-        // setup tableView
-        tableView.register(TodoCell.nib(), forCellReuseIdentifier: TodoCell.identifier)
+    // setup tableView
+    tableView.register(TodoCell.nib(), forCellReuseIdentifier: TodoCell.identifier)
 
-        // binding data
-        viewModel.todos.asObservable().bind(to: tableView.rx.items(cellIdentifier: TodoCell.identifier)) { (_, todo: Todo, cell: TodoCell) in
-            cell.todo = todo
-        }.disposed(by: viewModel.disposeBag)
+    // binding data
+    viewModel.todos.asObservable().bind(to: tableView.rx.items(cellIdentifier: TodoCell.identifier)) { (_, todo: Todo, cell: TodoCell) in
+      cell.todo = todo
+    }.disposed(by: viewModel.disposeBag)
 
-        // on tap todo cell
-        tableView.rx.modelSelected(Todo.self).subscribe(onNext: { [weak self] (todo: Todo) in
-            guard let self = self else { return }
-            self.viewModel.displayActionSheets(vc: self, todo: todo)
-        }).disposed(by: viewModel.disposeBag)
-    }
+    // on tap todo cell
+    tableView.rx.modelSelected(Todo.self).subscribe(onNext: { [weak self] (todo: Todo) in
+      guard let self = self else { return }
+      self.viewModel.displayActionSheets(vc: self, todo: todo)
+    }).disposed(by: viewModel.disposeBag)
+  }
 
-    func setupWillAppear() {
-        viewModel.getTodos()
-    }
+  func setupWillAppear() {
+    viewModel.getTodos()
+  }
 
-    @objc func routeToCreateTodo() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CreateTodoViewController")
-        show(vc, sender: nil)
-    }
+  @objc func routeToCreateTodo() {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "CreateTodoViewController")
+    show(vc, sender: nil)
+  }
 }
