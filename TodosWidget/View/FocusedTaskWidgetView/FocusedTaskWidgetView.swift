@@ -11,13 +11,16 @@ import WidgetKit
 struct FocusedTaskWidgetView: View {
   // MARK: - Properties
 
+  let todo: Todo
+
   // MARK: - Body
 
   var body: some View {
     VStack(alignment: .leading) {
       Text("Task:")
         .bold()
-      Text("Task The quick brown fox jumps over a lazy dog.")
+      Text(todo.message)
+        .strikethrough(todo.complete, color: Color(uiColor: .label))
       Spacer()
       ZStack {
         Capsule()
@@ -35,7 +38,7 @@ struct FocusedTaskWidgetView: View {
 
 struct FocusedTaskWidgetView_Previews: PreviewProvider {
   static var previews: some View {
-    FocusedTaskWidgetView()
+    FocusedTaskWidgetView(todo: TodosService.shared.getRandTodo() ?? Todo(id: UUID(), message: "Temp todo task. <3"))
       .previewContext(WidgetPreviewContext(family: .systemMedium))
   }
 }

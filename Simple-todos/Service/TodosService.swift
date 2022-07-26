@@ -40,6 +40,9 @@ class TodosService {
 
   func getRandTodo() -> Todo? {
     let todos = getAllTodos()
+    if todos.isEmpty {
+      return nil
+    }
     let randIndex = Int.random(in: 0 ..< todos.count)
 
     return todos[randIndex]
