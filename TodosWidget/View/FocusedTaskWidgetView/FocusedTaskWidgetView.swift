@@ -26,7 +26,7 @@ struct FocusedTaskWidgetView: View {
         Capsule()
           .fill(.pink)
           .frame(height: 42)
-        Text("set as Complete")
+        Text(todo?.complete ?? false ? "set as Incomplete" : "set as Complete")
           .bold()
           .font(.system(size: 14))
       }

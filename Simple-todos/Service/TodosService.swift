@@ -80,6 +80,6 @@ class TodosService {
   }
 
   func refreshTodosWidget() {
-    WidgetCenter.shared.reloadTimelines(ofKind: "TodosWidget")
+    WidgetCenter.shared.reloadAllTimelines()
   }
 }

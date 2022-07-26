@@ -8,31 +8,41 @@
 import SwiftUI
 import WidgetKit
 
-struct FocusedTaskProvider: TimelineProvider {
+struct FocusedTaskProvider: IntentTimelineProvider {
+  typealias Entry = FocusedTaskEntry
+
+  typealias Intent = SelectTaskIntent
+
   let mockData: Todo = .init(id: UUID(), message: "Task 1")
 
   func placeholder(in context: Context) -> FocusedTaskEntry {
     FocusedTaskEntry(date: Date(), todo: mockData)
   }
 
-  func getSnapshot(in context: Context, completion: @escaping (FocusedTaskEntry) -> ()) {
+  func getSnapshot(for configuration: SelectTaskIntent, in context: Context, completion: @escaping (FocusedTaskEntry) -> Void) {
     let entry = FocusedTaskEntry(date: Date(), todo: mockData)
+
     completion(entry)
   }
 
-  func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-    var entries: [FocusedTaskEntry] = []
+  func getTimeline(for configuration: SelectTaskIntent, in context: Context, completion: @escaping (Timeline<FocusedTaskEntry>) -> Void) {
+    var entries: [FocusedTaskEntry] = .init()
 
-    // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-    let currentDate = Date()
-    for hourOffset in 0 ..< 5 {
-      let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-      let entry = FocusedTaskEntry(date: entryDate, todo: TodosService.shared.getRandTodo())
-      entries.append(entry)
-    }
+    let date: Date = .init()
 
-    let timeline = Timeline(entries: entries, policy: .atEnd)
+    let entry: FocusedTaskEntry = .init(date: date, todo: getTodoFromConfig(configuration))
+
+    entries.append(entry)
+
+    let timeline = Timeline(entries: entries, policy: .never)
     completion(timeline)
+  }
+
+  func getTodoFromConfig(_ config: SelectTaskIntent) -> Todo? {
+    guard let todoId = config.task?.identifier else { return nil }
+    guard let todoUUID = UUID(uuidString: todoId) else { return nil }
+
+    return TodosService.shared.getTodo(by: todoUUID)
   }
 }
 
@@ -45,8 +55,7 @@ struct FocusedTaskWidgetEntryView: View {
   var entry: FocusedTaskProvider.Entry
 
   var body: some View {
-//    TodosWidgetView(todos: entry.todos)
-    Text("Task")
+    FocusedTaskWidgetView(todo: entry.todo)
   }
 }
 
@@ -54,7 +63,7 @@ struct FocusedTaskWidget: Widget {
   let kind: String = "FocusedTaskWidget"
 
   var body: some WidgetConfiguration {
-    StaticConfiguration(kind: kind, provider: FocusedTaskProvider()) { entry in
+    IntentConfiguration(kind: kind, intent: SelectTaskIntent.self, provider: FocusedTaskProvider()) { entry in
       FocusedTaskWidgetEntryView(entry: entry)
     }
     .configurationDisplayName("Focused Task")
@@ -65,6 +74,6 @@ struct FocusedTaskWidget: Widget {
 struct FocusedTaskWidget_Previews: PreviewProvider {
   static var previews: some View {
     FocusedTaskWidgetEntryView(entry: FocusedTaskEntry(date: Date(), todo: nil))
-      .previewContext(WidgetPreviewContext(family: .systemSmall))
+      .previewContext(WidgetPreviewContext(family: .systemMedium))
   }
 }
